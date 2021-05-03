@@ -4,9 +4,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog Site`,
-    description: `Write your site description here!`,
-    author: `@ibaslogic`,
+    title: `Blog Site`,
+    description: `Blog site created with Gatsby and Contentful`,
+    author: `Nabeel Farid`,
+    repo: "https://github.com/nabeelfarid/gatsby-contentful-blogsite",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

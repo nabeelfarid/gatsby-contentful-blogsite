@@ -1,36 +1,33 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
 import {
   AppBar,
   IconButton,
   Toolbar,
   Typography,
   Box,
-  Container,
-  Switch,
   Tooltip,
 } from "@material-ui/core"
-import { GitHub, PowerSettingsNew } from "@material-ui/icons"
+import { GitHub } from "@material-ui/icons"
 
-const Header = ({ siteTitle }) => (
-  <AppBar position="relative" color="inherit">
+interface HeaderProps {
+  siteTitle: string
+  repo: string
+}
+const Header: React.FC<HeaderProps> = props => (
+  <AppBar position="relative" color="primary">
     <Toolbar>
       <Typography
-        variant="h6"
-        component={Link}
+        variant="h4"
+        component={GatsbyLink}
         to="/"
-        style={{ color: "inherit", textDecoration: "inherit" }}
+        style={{ color: "inherit", textDecoration: "none" }}
       >
-        Blog Site
+        {props.siteTitle}
       </Typography>
       <Box flexGrow={1} />
       <Tooltip title="Github Repo">
-        <IconButton
-          aria-label="github"
-          href="https://github.com/nabeelfarid/diaries-app"
-          target="blank"
-        >
+        <IconButton aria-label="github" href={props.repo} target="blank">
           <GitHub />
         </IconButton>
       </Tooltip>
@@ -64,13 +61,5 @@ const Header = ({ siteTitle }) => (
   //   </div>
   // </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

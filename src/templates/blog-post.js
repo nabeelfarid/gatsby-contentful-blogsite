@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, Link as GatsbyLink } from "gatsby"
 import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Seo from "../components/seo"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS } from "@contentful/rich-text-types"
+import { Box, Divider, Link, Typography } from "@material-ui/core"
 
 export const query = graphql`
   query($slug: String!) {
@@ -13,6 +14,9 @@ export const query = graphql`
       publishedDate(formatString: "Do MMMM, YYYY")
       featuredImage {
         gatsbyImageData(width: 600)
+      }
+      excerpt {
+        excerpt
       }
       body {
         raw
@@ -59,41 +63,55 @@ const BlogPost = props => {
         console.log("node", node)
         if (node.data.uri.includes("youtube.com")) {
           return (
-            <div style={{ textAlign: "center" }}>
-              <iframe
-                src={node.data.uri}
-                frameBorder="0"
-                allowFullScreen
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                width="560"
-                height="315"
-              ></iframe>
-            </div>
+            <iframe
+              src={node.data.uri}
+              frameBorder="0"
+              allowFullScreen
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              width="560"
+              height="315"
+            ></iframe>
           )
-        } else return <a href={node.data.uri}>{node.content[0].value}</a>
+        } else
+          return (
+            <Link href={node.data.uri} target="_blank" rel="noopener">
+              {node.content[0].value}
+            </Link>
+          )
       },
     },
   }
   return (
     <Layout>
       <Seo title={props.data.contentfulBlogPost.title} />
-      <Link to="/blog/">Visit the Blog Page</Link>
-      <div className="content">
-        <h1>{props.data.contentfulBlogPost.title}</h1>
-        <span className="meta">
-          Posted on {props.data.contentfulBlogPost.publishedDate}
-        </span>
+      <Typography variant="h5">
+        {props.data.contentfulBlogPost.title}
+      </Typography>
+      <Typography variant="subtitle2">
+        {props.data.contentfulBlogPost.publishedDate}
+      </Typography>
+      <Divider />
+      {props.data.contentfulBlogPost.featuredImage && (
+        <Box my={2}>
+          <GatsbyImage
+            image={getImage(props.data.contentfulBlogPost.featuredImage)}
+            alt={props.data.contentfulBlogPost.title}
+          />
+        </Box>
+      )}
+      <Typography variant="body1" style={{ fontWeight: "bold" }}>
+        {props.data.contentfulBlogPost.excerpt.excerpt}
+      </Typography>
 
-        {props.data.contentfulBlogPost.featuredImage && (
-          <div className="featured">
-            <GatsbyImage
-              image={getImage(props.data.contentfulBlogPost.featuredImage)}
-              alt={props.data.contentfulBlogPost.title}
-            />
-          </div>
-        )}
+      <Typography variant="body1">
         {renderRichText(props.data.contentfulBlogPost.body, options)}
-      </div>
+      </Typography>
+      {/* <div className="content">
+       
+
+        
+        // 
+      </div> */}
     </Layout>
   )
 }
