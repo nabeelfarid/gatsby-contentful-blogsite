@@ -4,9 +4,4 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-import React from "react"
-import RootLayout from "./src/components/rootLayout"
-
-export const wrapRootElement = ({ element }) => {
-  return <RootLayout>{element}</RootLayout>
-}
+export { wrapRootElement } from "./src/utils/wrapRootElement";
