@@ -1,5 +1,5 @@
-import { red, lightBlue } from "@material-ui/core/colors"
-import { createMuiTheme } from "@material-ui/core/styles"
+import { red, lightBlue } from "@material-ui/core/colors";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 // A custom theme for this app basically a copy of the default dark theme
 // https://material-ui.com/customization/default-theme/
@@ -83,14 +83,14 @@ const theme = createMuiTheme({
       secondary: "rgba(255, 255, 255, 0.7)",
       disabled: "rgba(255, 255, 255, 0.5)",
       hint: "rgba(255, 255, 255, 0.5)",
-      icon: "rgba(255, 255, 255, 0.5)",
+      // icon: "rgba(255, 255, 255, 0.5)",
     },
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       paper: "#424242",
       default: "#121212",
-      level2: "#333",
-      level1: "#212121",
+      // level2: "#333",
+      // level1: "#212121",
     },
     action: {
       active: "#fff",
@@ -263,7 +263,7 @@ const theme = createMuiTheme({
     snackbar: 1400,
     tooltip: 1500,
   },
-  nprogress: { color: "#fff" },
-})
+  // nprogress: { color: "#fff" },
+});
 
-export default theme
+export default theme;

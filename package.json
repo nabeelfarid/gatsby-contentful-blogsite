@@ -1,14 +1,15 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-blog-site",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A Gatsby blog site with Contenful CMS",
+  "version": "1.0.0",
+  "author": "Nabeel Farid",
   "dependencies": {
     "@apollo/client": "^3.3.16",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
+    "add": "^2.0.6",
     "cross-fetch": "^3.1.4",
     "gatsby": "^3.4.0",
     "gatsby-plugin-gatsby-cloud": "^2.4.1",
@@ -27,7 +28,9 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-truncate-markup": "^5.1.0",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@types/netlify-identity-widget": "^1.9.1",
@@ -46,12 +49,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

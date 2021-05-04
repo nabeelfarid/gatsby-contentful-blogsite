@@ -25,8 +25,8 @@ const IdentityContextProvider: React.FC<IdentityContextProviderProps> = (
   const [user, setUser] = useState<netlifyIdentity.User>();
   // netlifyIdentity.init({});
   useEffect(() => {
-    console.log("Initialising Netlify Idenity inside UseEffect");
     netlifyIdentity.init({});
+    console.log("Initialising Netlify Idenity inside UseEffect");
   }, []);
 
   netlifyIdentity.on("init", (user) => {

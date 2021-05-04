@@ -1,0 +1,7 @@
+.blogPostGradient {
+  font-size: 16px;
+  background: -webkit-linear-gradient(#ffff, #0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
