@@ -1,4 +1,9 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<h1 align="center">
+  View project demo at https://gatsby-contentful-blogsite-nf.netlify.app/
+</h1>
+Built with Gatsby, GraphQL and Contentful CMS
+
 <p align="center">
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
