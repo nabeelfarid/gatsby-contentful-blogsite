@@ -6,7 +6,6 @@ import Seo from "../components/seo";
 import { Box, Divider, Typography, Link } from "@material-ui/core";
 
 const IndexPage = (props) => {
-  // console.log(props);
   return (
     <Layout>
       <Seo title="Home" />

@@ -37,7 +37,7 @@ export const query = graphql`
 
 const BlogPost = (props) => {
   const { user, identity } = useContext(IdentityContext);
-  // console.log(JSON.stringify(props));
+
   return (
     <Layout>
       <Seo title={props.data.contentfulBlogPost.title} />

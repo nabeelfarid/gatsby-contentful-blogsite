@@ -3,6 +3,10 @@ require("dotenv").config({
 });
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+  },
   siteMetadata: {
     title: `Blog Site`,
     description: `Blog site created with Gatsby and Contentful`,
@@ -11,14 +15,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-theme-material-ui`,
     `gatsby-plugin-image`,
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/images`,
-    //   },
-    // },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -33,7 +31,19 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: "FaunaBookmarksDb",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "fauna",
+        url: "https://graphql.fauna.com/graphql",
+        headers: {
+          Authorization: "Bearer fnAEIjPQPhACCVLvJehGIk9x3a13Tn9g_iYYvQGl",
+        },
+      },
+    }`gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -43,21 +53,5 @@ module.exports = {
         downloadLocal: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      // If you want to use styled components, in conjunction to Material-UI, you should:
-      // - Change the injection order
-      // - Add the plugin
-      options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
-      },
-      // 'gatsby-plugin-styled-components',
-    },
-    // `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
